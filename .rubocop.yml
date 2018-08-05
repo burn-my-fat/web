@@ -32,7 +32,7 @@ Metrics/LineLength:
 Metrics/BlockLength:
   Exclude:
     - config/environments/*.rb
-    - apps/web/application.rb
+    - apps/**/application.rb
 
 #
 # Style
