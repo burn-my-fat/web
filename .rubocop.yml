@@ -33,6 +33,7 @@ Metrics/BlockLength:
   Exclude:
     - config/environments/*.rb
     - apps/**/application.rb
+    - spec/**/*_spec.rb
 
 #
 # Style
@@ -49,6 +50,12 @@ Style/ClassAndModuleChildren:
 RSpec/DescribeClass:
   Exclude:
     - spec/**/features/*
+
+RSpec/MultipleExpectations:
+  Max: 3
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
 
 #
 # Capybara
