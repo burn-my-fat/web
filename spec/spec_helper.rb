@@ -16,6 +16,18 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.before(:suite) do
+    DatabaseCleaner.allow_remote_database_url = true
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
+
   config.default_formatter = 'doc' if config.files_to_run.one?
 
   config.profile_examples = 10
