@@ -5,4 +5,4 @@
 #
 # Example:
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
-post '/workouts', to: 'workouts#create'
+resources :workouts, only: %i[index create]
