@@ -28,6 +28,18 @@
 docker-compose up --build
 ```
 
+### Создание схемы базы данных
+
+```bash
+docker-compose exec web hanami db prepare
+```
+
+### Наполнение базы данных тестовыми данными
+
+```bash
+docker-compose exec web ruby db/seed.db
+```
+
 ## Запуск тестов
 
 Все тесты можно запускать внутри Docker-контейнера.
