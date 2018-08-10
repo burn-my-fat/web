@@ -22,7 +22,6 @@ module Api
       #
       load_paths << %w[
         controllers
-        views
       ]
 
       # Handle exceptions with HTTP statuses (true) or don't catch them (false).
@@ -111,18 +110,6 @@ module Api
       # it redirects to the secure equivalent (https). Disabled by default.
       #
       # force_ssl true
-
-      ##
-      # TEMPLATES
-      #
-
-      # The layout to be used by all views
-      #
-      layout :application # It will load Api::Views::ApplicationLayout
-
-      # The relative path to templates
-      #
-      templates 'templates'
 
       ##
       # ASSETS
