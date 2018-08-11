@@ -7,3 +7,4 @@
 # get '/hello', to: ->(env) { [200, {}, ['Hello from Hanami!']] }
 resources :workouts, only: %i[index create]
 get '/muscle_groups', to: 'muscle_groups#index'
+get '/training_types', to: 'training_types#index'

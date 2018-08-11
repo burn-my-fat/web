@@ -3,6 +3,18 @@
 require_relative '../config/boot'
 
 #
+# Training Types
+#
+
+training_type_repository = TrainingTypeRepository.new
+training_type_repository.clear
+
+TRAINING_TYPES = ['Strength Training', 'Cardio', 'Stretching', 'Yoga'].freeze
+TRAINING_TYPES.each do |training_type|
+  training_type_repository.create(name: training_type)
+end
+
+#
 # Muscle Groups
 #
 muscle_group_repository = MuscleGroupRepository.new
