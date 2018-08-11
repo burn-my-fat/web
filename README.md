@@ -1,5 +1,7 @@
 # Burn My Fat!
 
+[![Build Status](https://travis-ci.org/burn-my-fat/web.svg?branch=master)](https://travis-ci.org/burn-my-fat/web)
+
 В этом документе описан процесс разворачивания проекта и запуска тестов для него.
 
 ## Основная информация

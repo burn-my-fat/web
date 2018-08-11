@@ -22,9 +22,12 @@ group :test, :development do
 end
 
 group :test do
+  gem 'bundler-audit', require: false
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'
+  gem 'rubocop', require: false
+  gem 'rubocop-rspec', require: false
 end
 
 group :production do
