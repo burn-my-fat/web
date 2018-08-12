@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'hanami/helpers'
-require 'hanami/assets'
 
 module Api
   class Application < Hanami::Application
@@ -112,44 +111,6 @@ module Api
       # force_ssl true
 
       ##
-      # ASSETS
-      #
-      assets do
-        # JavaScript compressor
-        #
-        # Supported engines:
-        #
-        #   * :builtin
-        #   * :uglifier
-        #   * :yui
-        #   * :closure
-        #
-        # See: http://hanamirb.org/guides/assets/compressors
-        #
-        # In order to skip JavaScript compression comment the following line
-        javascript_compressor :builtin
-
-        # Stylesheet compressor
-        #
-        # Supported engines:
-        #
-        #   * :builtin
-        #   * :yui
-        #   * :sass
-        #
-        # See: http://hanamirb.org/guides/assets/compressors
-        #
-        # In order to skip stylesheet compression comment the following line
-        stylesheet_compressor :builtin
-
-        # Specify sources for assets
-        #
-        sources << [
-          'assets'
-        ]
-      end
-
-      ##
       # SECURITY
       #
 
@@ -258,7 +219,6 @@ module Api
       # See: http://www.rubydoc.info/gems/hanami-view#Configuration
       view.prepare do
         include Hanami::Helpers
-        include Api::Assets::Helpers
       end
     end
 
@@ -285,31 +245,6 @@ module Api
       # scheme 'https'
       # host   'example.org'
       # port   443
-
-      assets do
-        # Don't compile static assets in production mode (eg. Sass, ES6)
-        #
-        # See: http://www.rubydoc.info/gems/hanami-assets#Configuration
-        compile false
-
-        # Use fingerprint file name for asset paths
-        #
-        # See: http://hanamirb.org/guides/assets/overview
-        fingerprint true
-
-        # Content Delivery Network (CDN)
-        #
-        # See: http://hanamirb.org/guides/assets/content-delivery-network
-        #
-        # scheme 'https'
-        # host   'cdn.example.org'
-        # port   443
-
-        # Subresource Integrity
-        #
-        # See: http://hanamirb.org/guides/assets/content-delivery-network/#subresource-integrity
-        subresource_integrity :sha256
-      end
     end
   end
 end
