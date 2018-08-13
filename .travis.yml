@@ -1,29 +1,7 @@
-dist: trusty
-group: deprecated-2017Q4
 sudo: required
 
-addons:
-  postgresql: "9.4"
+env:
+  DOCKER_COMPOSE_VERSION: 1.22.0
 
-language: ruby
-rvm:
-  - 2.5.1
-
-cache:
-  directories:
-    - $HOME/.rvm
-    - $HOME/bundle
-
-bundler_args: --without production development --path $HOME/bundle
-
-before_script:
-  - cp .env.travis .env.test
-  - bundle exec hanami db prepare
-
-script:
-  - bundle exec rspec
-  - bundle exec rubocop -DS --force-exclusion -c .rubocop.yml -d -E
-  - bundle exec bundle audit update && bundle exec bundle audit check
-
-services:
-  - postgresql
+install: ./bin/install-dependencies.sh
+script: make test

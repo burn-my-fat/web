@@ -1,4 +1,4 @@
-FROM ruby:2.5-alpine
+FROM ruby:2.5.1-alpine
 MAINTAINER Alexander Kadyrov <gruz0.mail@gmail.com>
 
 RUN apk add --no-cache make gcc libc-dev postgresql-client postgresql-dev libpq
@@ -7,9 +7,10 @@ RUN apk add --no-cache make gcc libc-dev postgresql-client postgresql-dev libpq
 # https://coderwall.com/p/u1xpag/a-faster-bundle-install
 COPY .gemrc $HOME/.gemrc
 
+ENV HANAMI_ENV=test
+
 WORKDIR /app
 COPY . /app
-RUN bundle install -j $(nproc) --quiet
+RUN bundle install -j $(nproc) --quiet --without production
 
-EXPOSE 2300
-ENTRYPOINT ["bundle", "exec"]
+CMD ["bin/test.sh"]
