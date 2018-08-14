@@ -2,7 +2,7 @@
 
 RSpec.describe Api::Controllers::TrainingTypes::Index, type: :action do
   let(:action) { described_class.new }
-  let(:repository) { TrainingTypeRepository.new }
+  let(:repo) { TrainingTypeRepository.new }
   let(:params) do
     {
       name: 'Strength Training'
@@ -25,13 +25,13 @@ RSpec.describe Api::Controllers::TrainingTypes::Index, type: :action do
 
   context 'when training types are present' do
     it 'returns ID equals to last created training type' do
-      repository.create(params)
+      repo.create(params)
 
       response = action.call(params)
       result = JSON.parse(response[2].first)
 
       expect(result.size).to eq(1)
-      expect(result.first['id']).to eq(repository.last.id)
+      expect(result.first['id']).to eq(repo.last.id)
     end
   end
 end
