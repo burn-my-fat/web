@@ -2,7 +2,7 @@
 
 RSpec.describe Api::Controllers::MuscleGroups::Index, type: :action do
   let(:action) { described_class.new }
-  let(:repository) { MuscleGroupRepository.new }
+  let(:repo) { MuscleGroupRepository.new }
   let(:params) do
     {
       name: 'Legs'
@@ -25,13 +25,13 @@ RSpec.describe Api::Controllers::MuscleGroups::Index, type: :action do
 
   context 'when muscle groups are present' do
     it 'returns ID equals to last created muscle group' do
-      repository.create(params)
+      repo.create(params)
 
       response = action.call(params)
       result = JSON.parse(response[2].first)
 
       expect(result.size).to eq(1)
-      expect(result.first['id']).to eq(repository.last.id)
+      expect(result.first['id']).to eq(repo.last.id)
     end
   end
 end

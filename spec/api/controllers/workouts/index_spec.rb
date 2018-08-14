@@ -2,7 +2,7 @@
 
 RSpec.describe Api::Controllers::Workouts::Index, type: :action do
   let(:action) { described_class.new }
-  let(:repository) { WorkoutRepository.new }
+  let(:repo) { WorkoutRepository.new }
   let(:params) do
     {
       workout_date: '2018-08-06',
@@ -36,13 +36,13 @@ RSpec.describe Api::Controllers::Workouts::Index, type: :action do
 
   context 'when exercises are present' do
     it 'returns ID equals to last created exercise' do
-      repository.create(params)
+      repo.create(params)
 
       response = action.call(params)
       result = JSON.parse(response[2].first)
 
       expect(result.size).to eq(1)
-      expect(result.first['id']).to eq(repository.last.id)
+      expect(result.first['id']).to eq(repo.last.id)
     end
   end
 end

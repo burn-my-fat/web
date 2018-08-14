@@ -2,11 +2,7 @@
 
 RSpec.describe Api::Controllers::Workouts::Create, type: :action do
   let(:action) { described_class.new }
-  let(:repository) { WorkoutRepository.new }
-
-  before do
-    repository.clear
-  end
+  let(:repo) { WorkoutRepository.new }
 
   describe 'with valid params' do
     let(:params) do
@@ -28,9 +24,7 @@ RSpec.describe Api::Controllers::Workouts::Create, type: :action do
 
     it 'creates a new workout' do
       action.call(params)
-      workout = repository.last
-
-      expect(workout.id).not_to be_nil
+      expect(repo.last.id).not_to be_nil
     end
 
     it 'returns 201 status' do
@@ -40,9 +34,7 @@ RSpec.describe Api::Controllers::Workouts::Create, type: :action do
 
     it 'returns workout ID' do
       response = action.call(params)
-      workout = repository.last
-
-      expect(JSON.parse(response[2].first, symbolize_names: true)[:id]).to eq(workout.id)
+      expect(JSON.parse(response[2].first, symbolize_names: true)[:id]).to eq(repo.last.id)
     end
   end
 
