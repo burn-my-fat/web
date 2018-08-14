@@ -26,6 +26,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'rspec'
+  gem 'rspec-hanami'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
 end

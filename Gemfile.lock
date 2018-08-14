@@ -166,6 +166,9 @@ GEM
     rspec-expectations (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
+    rspec-hanami (0.3.1)
+      hanami
+      rspec
     rspec-mocks (3.8.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
@@ -211,6 +214,7 @@ DEPENDENCIES
   pg
   rake
   rspec
+  rspec-hanami
   rubocop
   rubocop-rspec
   shotgun
