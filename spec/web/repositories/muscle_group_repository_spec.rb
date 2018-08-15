@@ -2,8 +2,10 @@
 
 RSpec.describe MuscleGroupRepository, type: :repository do
   let(:repo) { MuscleGroupRepository.new }
+  let(:training_type) { TrainingTypeRepository.new.create(name: 'Legs') }
   let(:muscle_group) { repo.create(name: 'Legs') }
   let(:muscles) { -> { repo.find_with_muscles(muscle_group.id).muscles } }
+  let(:exercises) { -> { repo.find_with_exercises(muscle_group.id).exercises } }
 
   describe '#sorted' do
     it 'returns sorted ascending by name' do
@@ -46,6 +48,24 @@ RSpec.describe MuscleGroupRepository, type: :repository do
 
       repo.remove_muscle(muscle_group, muscle.id)
       expect(muscles.call.size).to eq(0)
+    end
+  end
+
+  describe '#find_with_exercises' do
+    context 'when exercises do not exist' do
+      it 'returns empty array' do
+        expect(exercises.call).to be_empty
+      end
+    end
+
+    context 'when exercises exist' do
+      it 'returns exercises array' do
+        exercise_repo = ExerciseRepository.new
+        exercise_repo.create(name: 'Back Lunge', muscle_group_id: muscle_group.id, training_type_id: training_type.id)
+        exercise_repo.create(name: 'Leg Press', muscle_group_id: muscle_group.id, training_type_id: training_type.id)
+
+        expect(exercises.call.size).to eq(2)
+      end
     end
   end
 end

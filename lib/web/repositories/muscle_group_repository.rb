@@ -3,6 +3,7 @@
 class MuscleGroupRepository < Hanami::Repository
   associations do
     has_many :muscles
+    has_many :exercises
   end
 
   def sorted
@@ -19,5 +20,9 @@ class MuscleGroupRepository < Hanami::Repository
 
   def remove_muscle(muscle_group, id)
     assoc(:muscles, muscle_group).where(id: id).delete
+  end
+
+  def find_with_exercises(id)
+    aggregate(:exercises).where(id: id).map_to(MuscleGroup).one
   end
 end
