@@ -29,12 +29,12 @@ RSpec.describe Api::Controllers::Workouts::Create, type: :action do
 
     it 'returns 201 status' do
       response = action.call(params)
-      expect(response[0]).to eq(201)
+      expect(response).to have_http_status(:created)
     end
 
     it 'returns workout ID' do
       response = action.call(params)
-      expect(JSON.parse(response[2].first, symbolize_names: true)[:id]).to eq(repo.last.id)
+      expect(response).to include_json(id: repo.last.id)
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe Api::Controllers::Workouts::Create, type: :action do
 
     it 'returns HTTP client error' do
       response = action.call(params)
-      expect(response[0]).to eq(422)
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it 'dumps errors in params' do

@@ -22,7 +22,7 @@ RSpec.describe Api::Controllers::Workouts::Index, type: :action do
 
   it 'is successful' do
     response = action.call(params)
-    expect(response[0]).to eq 200
+    expect(response).to have_http_status(:ok)
   end
 
   context 'when no exercises found' do

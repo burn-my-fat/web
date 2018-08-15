@@ -11,7 +11,7 @@ RSpec.describe Api::Controllers::MuscleGroups::Index, type: :action do
 
   it 'is successful' do
     response = action.call(params)
-    expect(response[0]).to eq 200
+    expect(response).to have_http_status(:ok)
   end
 
   context 'when no muscle groups found' do
