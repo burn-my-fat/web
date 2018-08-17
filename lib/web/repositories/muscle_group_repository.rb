@@ -10,6 +10,11 @@ class MuscleGroupRepository < Hanami::Repository
     muscle_groups.order { name.asc }.to_a
   end
 
+  # FIXME: It should be covered with tests
+  def find_by_ids(ids)
+    muscle_groups.where(id: ids).to_a
+  end
+
   def find_with_muscles(id)
     aggregate(:muscles).where(id: id).map_to(MuscleGroup).one
   end
