@@ -57,6 +57,16 @@ RSpec.describe Api::Controllers::Trainings::Index, type: :action do
             name: strength_training.name,
             muscle_groups: [
               {
+                id: chest_muscle_group.id,
+                name: chest_muscle_group.name,
+                exercises: [
+                  {
+                    id: dumbbell_bench_press.id,
+                    name: dumbbell_bench_press.name
+                  }
+                ]
+              },
+              {
                 id: legs_muscle_group.id,
                 name: legs_muscle_group.name,
                 exercises: [
@@ -67,16 +77,6 @@ RSpec.describe Api::Controllers::Trainings::Index, type: :action do
                   {
                     id: leg_press.id,
                     name: leg_press.name
-                  }
-                ]
-              },
-              {
-                id: chest_muscle_group.id,
-                name: chest_muscle_group.name,
-                exercises: [
-                  {
-                    id: dumbbell_bench_press.id,
-                    name: dumbbell_bench_press.name
                   }
                 ]
               }

@@ -5,7 +5,7 @@ module Api::Controllers::Trainings
     include Api::Action
 
     def call(*)
-      self.body = JSON.dump(AllTrainings.new.call.map(&:to_h))
+      self.body = JSON.dump(AllTrainings.new.call)
     end
   end
 end
