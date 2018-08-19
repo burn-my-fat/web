@@ -57,6 +57,9 @@ RSpec/MultipleExpectations:
 RSpec/EmptyExampleGroup:
   Enabled: false
 
+RSpec/ExampleLength:
+  Enabled: false
+
 #
 # Capybara
 #
