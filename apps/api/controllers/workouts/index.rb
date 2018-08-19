@@ -7,6 +7,7 @@ module Api::Controllers::Workouts
     def call(*)
       workouts = WorkoutRepository.new.all
       self.body = JSON.dump(workouts.map(&:to_h))
+      self.format = :json
     end
   end
 end

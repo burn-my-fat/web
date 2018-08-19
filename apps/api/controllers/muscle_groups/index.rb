@@ -7,6 +7,7 @@ module Api::Controllers::MuscleGroups
     def call(*)
       musclegroups = MuscleGroupRepository.new.all
       self.body = JSON.dump(musclegroups.map(&:to_h))
+      self.format = :json
     end
   end
 end

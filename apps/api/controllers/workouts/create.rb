@@ -12,6 +12,8 @@ module Api::Controllers::Workouts
     end
 
     def call(params)
+      self.format = :json
+
       if params.valid?
         workout = WorkoutRepository.new.create(params[:workout])
         self.status = 201
