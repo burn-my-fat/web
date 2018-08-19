@@ -2,14 +2,10 @@
 
 require_relative '../config/boot'
 require_relative 'seeds/base'
-require_relative 'seeds/training_types_seed'
-require_relative 'seeds/muscle_groups_seed'
-require_relative 'seeds/exercises_seed'
+require_relative 'seeds/training_types/seed'
+require_relative 'seeds/muscle_groups/seed'
+require_relative 'seeds/exercises/seed'
 
-training_types = TrainingTypesSeed.new.call
-muscle_groups = MuscleGroupsSeed.new.call
-
-#
-# Exercises
-#
-Exercises::ExercisesSeed.new(training_types: training_types, muscle_groups: muscle_groups).call
+training_types = Seeds::TrainingTypes::Seed.new.call
+muscle_groups  = Seeds::MuscleGroups::Seed.new.call
+Seeds::Exercises::Seed.new(training_types: training_types, muscle_groups: muscle_groups).call

@@ -1,30 +1,32 @@
 # frozen_string_literal: true
 
-class Base
-  attr_reader :repo, :collection
+module Seeds
+  class Base
+    attr_reader :repo, :collection
 
-  def initialize(repo)
-    @repo = repo
-    @repo.clear
+    def initialize(repo)
+      @repo = repo
+      @repo.clear
 
-    @collection = {}
-  end
-
-  def call(items)
-    items.each do |item|
-      @collection[parameterize(item).to_sym] = repo.create(name: item)
+      @collection = {}
     end
 
-    self
-  end
+    def call(items)
+      items.each do |item|
+        @collection[parameterize(item).to_sym] = repo.create(name: item)
+      end
 
-  def [](key)
-    @collection[key]
-  end
+      self
+    end
 
-  protected
+    def [](key)
+      @collection[key]
+    end
 
-  def parameterize(value)
-    value.gsub(/\s+/, '_').downcase
+    protected
+
+    def parameterize(value)
+      value.gsub(/\s+/, '_').downcase
+    end
   end
 end
