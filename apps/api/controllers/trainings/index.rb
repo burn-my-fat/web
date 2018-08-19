@@ -6,6 +6,7 @@ module Api::Controllers::Trainings
 
     def call(*)
       self.body = JSON.dump(AllTrainings.new.call)
+      self.format = :json
     end
   end
 end

@@ -7,6 +7,7 @@ module Api::Controllers::TrainingTypes
     def call(*)
       training_types = TrainingTypeRepository.new.all
       self.body = JSON.dump(training_types.map(&:to_h))
+      self.format = :json
     end
   end
 end

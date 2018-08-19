@@ -7,6 +7,7 @@ module Api::Controllers::Muscles
     def call(*)
       muscles = MuscleRepository.new.all
       self.body = JSON.dump(muscles.map(&:to_h))
+      self.format = :json
     end
   end
 end
