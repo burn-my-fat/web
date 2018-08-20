@@ -2,7 +2,7 @@
 
 module Seeds
   module Exercises
-    module MuscleGroups
+    module StrengthTraining
       class Chest
         CHEST = [
           'Barbell Inclide Bench Press',
