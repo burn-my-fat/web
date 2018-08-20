@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe TrainingTypeRepository, type: :repository do
-  let(:repo) { TrainingTypeRepository.new }
+  subject(:repo) { described_class.new }
+
   let(:training_type) { repo.create(name: 'Strength Training') }
   let(:muscle_group) { MuscleGroupRepository.new.create(name: 'Legs') }
   let(:exercises) { -> { repo.find_with_exercises(training_type.id).exercises } }
