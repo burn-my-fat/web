@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe MuscleRepository, type: :repository do
-  let(:repo) { MuscleRepository.new }
+  subject(:repo) { described_class.new }
 
   describe '#find_with_muscle_group' do
     it 'returns muscle group' do

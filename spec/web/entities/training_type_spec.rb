@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe TrainingType, type: :entity do
+  subject(:training_type) { described_class.new(params) }
+
   let(:params) do
     {
       name: 'Strength Training'
@@ -8,7 +10,6 @@ RSpec.describe TrainingType, type: :entity do
   end
 
   it 'can be initialized with attributes' do
-    training_type = TrainingType.new(params)
     expect(training_type.name).to eq(params[:name])
   end
 end

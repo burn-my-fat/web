@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe Workout, type: :entity do
+  subject(:workout) { described_class.new(params) }
+
   let(:params) do
     {
       workout_date: '2018-08-06',
@@ -19,7 +21,6 @@ RSpec.describe Workout, type: :entity do
   end
 
   it 'can be initialized with attributes' do
-    workout = Workout.new(params)
     expect(workout.workout_date.to_s).to eq(params[:workout_date])
     expect(workout.exercises).to eq(params[:exercises])
   end
