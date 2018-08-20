@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'muscle_groups/base'
-require_relative 'muscle_groups/abdominals'
-require_relative 'muscle_groups/arms'
-require_relative 'muscle_groups/back'
-require_relative 'muscle_groups/chest'
-require_relative 'muscle_groups/legs'
-require_relative 'muscle_groups/shoulders'
+require_relative 'strength_training/base'
+require_relative 'strength_training/abdominals'
+require_relative 'strength_training/arms'
+require_relative 'strength_training/back'
+require_relative 'strength_training/chest'
+require_relative 'strength_training/legs'
+require_relative 'strength_training/shoulders'
+require_relative 'cardio/base'
+require_relative 'cardio/default'
 
 module Seeds
   module Exercises
@@ -30,12 +32,13 @@ module Seeds
 
       def params
         [
-          MuscleGroups::Abdominals.new.params,
-          MuscleGroups::Arms.new.params,
-          MuscleGroups::Back.new.params,
-          MuscleGroups::Chest.new.params,
-          MuscleGroups::Legs.new.params,
-          MuscleGroups::Shoulders.new.params
+          StrengthTraining::Abdominals.new.params,
+          StrengthTraining::Arms.new.params,
+          StrengthTraining::Back.new.params,
+          StrengthTraining::Chest.new.params,
+          StrengthTraining::Legs.new.params,
+          StrengthTraining::Shoulders.new.params,
+          Cardio::Default.new.params
         ]
       end
 

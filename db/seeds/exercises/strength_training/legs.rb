@@ -2,7 +2,7 @@
 
 module Seeds
   module Exercises
-    module MuscleGroups
+    module StrengthTraining
       class Legs
         LEGS = [
           'Barbell Lunge',

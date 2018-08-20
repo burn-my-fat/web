@@ -2,7 +2,7 @@
 
 module Seeds
   module Exercises
-    module MuscleGroups
+    module StrengthTraining
       class Back
         BACK = [
           'Back Flyes With Resistance Bands',

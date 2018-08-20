@@ -2,7 +2,7 @@
 
 module Seeds
   module Exercises
-    module MuscleGroups
+    module StrengthTraining
       class Abdominals < Base
         ABDOMINALS = [
           'Bent Knee Hip Raise',
