@@ -29,6 +29,8 @@ group :test do
   gem 'rspec-hanami'
   gem 'rubocop', require: false
   gem 'rubocop-rspec', require: false
+  gem 'hanami-fabrication'
+  gem 'ffaker'
 end
 
 group :production do

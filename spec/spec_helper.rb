@@ -5,6 +5,8 @@ ENV['HANAMI_ENV'] ||= 'test'
 
 require_relative '../config/environment'
 require 'rspec/hanami'
+require 'ffaker'
+
 
 Hanami.boot
 Hanami::Utils.require!("#{__dir__}/support")
