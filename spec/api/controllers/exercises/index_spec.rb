@@ -3,8 +3,8 @@
 RSpec.describe Api::Controllers::Exercises::Index, type: :action do
   let(:action) { described_class.new }
   let(:repo) { ExerciseRepository.new }
-  let(:training_type) { TrainingTypeRepository.new.create(name: 'Strength Training') }
-  let(:muscle_group) { MuscleGroupRepository.new.create(name: 'Legs') }
+  let(:training_type) { Fabricate(:training_type, name: 'Strength Training') }
+  let(:muscle_group) { Fabricate(:muscle_group, name: 'Legs') }
   let(:params) do
     {
       name: 'Barbell Squat',

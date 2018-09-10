@@ -25,6 +25,8 @@ group :test do
   gem 'bundler-audit', require: false
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'ffaker'
+  gem 'hanami-fabrication'
   gem 'rspec'
   gem 'rspec-hanami'
   gem 'rubocop', require: false

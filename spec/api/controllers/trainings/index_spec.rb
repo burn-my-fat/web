@@ -23,28 +23,28 @@ RSpec.describe Api::Controllers::Trainings::Index, type: :action do
   context 'when data is present' do
     it 'returns collection as JSON' do
       # Training types
-      strength_training = training_type_repo.create(name: 'Strength Training')
-      cardio            = training_type_repo.create(name: 'Cardio')
+      strength_training = Fabricate(:training_type, name: 'Strength Training')
+      cardio            = Fabricate(:training_type, name: 'Cardio')
 
       # Muscle groups
-      default_muscle_group = muscle_group_repo.create(name: 'Default')
-      legs_muscle_group    = muscle_group_repo.create(name: 'Legs')
-      chest_muscle_group   = muscle_group_repo.create(name: 'Chest')
+      default_muscle_group = Fabricate(:muscle_group, name: 'Default')
+      legs_muscle_group    = Fabricate(:muscle_group, name: 'Legs')
+      chest_muscle_group   = Fabricate(:muscle_group, name: 'Chest')
 
       # Exercises
-      barbell_squat = exercise_repo.create(name: 'Barbell Squat',
+      barbell_squat = Fabricate(:exercise, name: 'Barbell Squat',
                                            training_type_id: strength_training.id,
                                            muscle_group_id: legs_muscle_group.id)
 
-      leg_press = exercise_repo.create(name: 'Leg Press',
+      leg_press = Fabricate(:exercise, name: 'Leg Press',
                                        training_type_id: strength_training.id,
                                        muscle_group_id: legs_muscle_group.id)
 
-      dumbbell_bench_press = exercise_repo.create(name: 'Dumbbell Bench Press',
+      dumbbell_bench_press = Fabricate(:exercise, name: 'Dumbbell Bench Press',
                                                   training_type_id: strength_training.id,
                                                   muscle_group_id: chest_muscle_group.id)
 
-      biking = exercise_repo.create(name: 'Biking',
+      biking = Fabricate(:exercise, name: 'Biking',
                                     training_type_id: cardio.id,
                                     muscle_group_id: default_muscle_group.id)
 

@@ -3,7 +3,7 @@
 RSpec.describe Api::Controllers::Muscles::Index, type: :action do
   let(:action) { described_class.new }
   let(:repo) { MuscleRepository.new }
-  let(:muscle_group) { MuscleGroupRepository.new.create(name: 'Legs') }
+  let(:muscle_group) { Fabricate(:muscle_group, name: 'Legs') }
   let(:params) do
     {
       name: 'Quadriceps Femoris',
