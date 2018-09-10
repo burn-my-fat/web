@@ -11,6 +11,7 @@ help:
 test:
 	docker-compose down
 	docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit --exit-code-from test
+	rubocop -DS --force-exclusion -c .rubocop.yml -d -E
 
 dockerize:
 	docker-compose up --build
