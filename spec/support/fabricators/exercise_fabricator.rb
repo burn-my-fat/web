@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Fabricator(:exercise) do
   name { FFaker::Lorem.word }
   description { FFaker::Lorem.paragraph }
