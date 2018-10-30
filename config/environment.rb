@@ -3,6 +3,7 @@
 require 'bundler/setup'
 require 'hanami/setup'
 require 'hanami/model'
+require 'hanami/middleware/body_parser'
 require_relative '../lib/web'
 require_relative '../apps/api/application'
 require_relative '../apps/web/application'
@@ -50,4 +51,6 @@ Hanami.configure do
       delivery :smtp, address: ENV.fetch('SMTP_HOST'), port: ENV.fetch('SMTP_PORT')
     end
   end
+
+  middleware.use Hanami::Middleware::BodyParser, :json
 end

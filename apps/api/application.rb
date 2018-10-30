@@ -97,14 +97,6 @@ module Api
       #
       default_response_format :json
 
-      # HTTP Body parsers
-      # Parse non GET responses body for a specific mime type
-      # Argument: Symbol, which represent the format of the mime type
-      #             (only `:json` is supported)
-      #           Object, the parser
-      #
-      body_parsers :json
-
       # When it's true and the router receives a non-encrypted request (http),
       # it redirects to the secure equivalent (https). Disabled by default.
       #
