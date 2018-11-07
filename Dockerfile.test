@@ -1,4 +1,4 @@
-FROM gruz0/burn_my_fat:0.1
+FROM gruz0/burn_my_fat:0.2
 MAINTAINER Alexander Kadyrov <gruz0.mail@gmail.com>
 
 ENV HANAMI_ENV=test
